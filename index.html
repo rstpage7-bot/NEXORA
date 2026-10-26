@@ -2,50 +2,31 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b1220"><title>GradFlow | Graduation Project Management</title>
-<link rel="stylesheet" href="styles.css">
+<title>GradFlow | إدارة مشاريع التخرج</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="app-shell">
-  <aside class="sidebar" id="sidebar">
-    <div class="brand"><div class="brand-mark">G</div><div><strong>GradFlow</strong><small data-i18n="brandSub">إدارة مشاريع التخرج</small></div></div>
-    <div class="workspace"><span class="workspace-dot"></span><span data-i18n="workspace">مساحة كلية الأعمال</span><span class="chevron">⌄</span></div>
-    <div class="nav-label" data-i18n="menu">القائمة الرئيسية</div>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="logo">G</div><div><b>GradFlow</b><small>إدارة مشاريع التخرج</small></div></div>
+    <div class="workspace"><small>مساحة العمل</small><b>مشروع فريق ممدوح</b><span>● نشط</span></div>
     <nav id="nav">
-      <button class="nav-item active" data-view="overview"><span>▦</span><span data-i18n="overview">نظرة عامة</span></button>
-      <button class="nav-item" data-view="projects"><span>▣</span><span data-i18n="projects">المشاريع</span><b class="nav-count" id="projectCount">6</b></button>
-      <button class="nav-item" data-view="tasks"><span>☷</span><span data-i18n="tasks">المهام</span></button>
-      <button class="nav-item" data-view="team"><span>♧</span><span data-i18n="team">الفرق والأعضاء</span></button>
-      <button class="nav-item" data-view="timeline"><span>◷</span><span data-i18n="timeline">الجدول الزمني</span></button>
-      <button class="nav-item" data-view="files"><span>▤</span><span data-i18n="files">الملفات والتسليمات</span></button>
+      <button class="nav active" data-page="overview">▦ <span>نظرة عامة</span></button>
+      <button class="nav" data-page="project">▣ <span>مساحة المشروع</span></button>
+      <button class="nav" data-page="tasks">☷ <span>المهام</span></button>
+      <button class="nav" data-page="submissions">⇧ <span>التسليمات والمراجعات</span></button>
+      <button class="nav" data-page="defense">✓ <span>الاستعداد للمناقشة</span></button>
+      <button class="nav" data-page="notes">✎ <span>ملاحظات التطبيق</span></button>
     </nav>
-    <div class="nav-label second-label" data-i18n="manage">الإدارة</div>
-    <nav>
-      <button class="nav-item" data-view="reviews"><span>✓</span><span data-i18n="reviews">مراجعات المشرف</span><i class="notification-dot"></i></button>
-      <button class="nav-item" data-view="reports"><span>▥</span><span data-i18n="reports">التقارير</span></button>
-    </nav>
-    <div class="sidebar-bottom">
-      <div class="help-card"><div class="help-icon">✦</div><strong data-i18n="needHelp">تحتاج مساعدة؟</strong><p data-i18n="helpText">اطّلع على دليل استخدام المنصة.</p><button id="helpBtn" class="outline small" data-i18n="helpBtn">فتح مركز المساعدة ↗</button></div>
-      <div class="profile-mini"><div class="avatar">MA</div><div class="profile-info"><strong id="sideName">محمد أحمد</strong><small id="sideRole">مدير النظام</small></div><button id="logoutBtn" title="تسجيل الخروج">↪</button></div>
-    </div>
+    <div class="sidebar-foot"><div class="avatar">MM</div><div><b>ممدوح</b><small>مسؤول الفريق</small></div><button id="lang" title="Toggle language">EN</button></div>
   </aside>
   <main class="main">
-    <header class="topbar">
-      <button class="mobile-menu" id="mobileMenu">☰</button>
-      <div class="breadcrumbs"><span data-i18n="workspace">مساحة كلية الأعمال</span><span class="crumb-sep">/</span><strong id="crumbCurrent" data-i18n="overview">نظرة عامة</strong></div>
-      <div class="top-actions">
-        <label class="search"><span>⌕</span><input id="globalSearch" data-i18n-placeholder="search" placeholder="ابحث عن مشروع أو عضو..."></label>
-        <button class="icon-btn" id="langBtn" aria-label="Change language">EN</button>
-        <button class="icon-btn notification-btn" id="notificationBtn" aria-label="Notifications">♧<i></i></button>
-        <button class="top-avatar" id="accountBtn">MA</button>
-      </div>
-    </header>
-    <section class="content" id="content"></section>
-    <footer><span>© 2026 GradFlow</span><span data-i18n="footer">صُممت لتنظيم رحلة مشروع التخرج من الفكرة إلى المناقشة.</span><span class="online"><i></i><span data-i18n="allSystems">جميع الأنظمة تعمل</span></span></footer>
+    <header class="topbar"><div><small>مساحة الفريق / <span id="crumb">نظرة عامة</span></small><h1 id="pageTitle">نظرة عامة</h1></div><div class="top-actions"><span class="pill"><i></i> النسخة التجريبية</span><button class="icon-btn" id="exportBtn" title="تصدير البيانات">⇩</button><div class="avatar">MM</div></div></header>
+    <div id="content"></div>
+    <footer>GradFlow · نموذج تجريبي لإدارة مشاريع التخرج · يتم حفظ البيانات على هذا الجهاز</footer>
   </main>
 </div>
 <div class="toast" id="toast"></div>
-<dialog id="modal"><form method="dialog" id="modalForm"><div class="modal-head"><h3 id="modalTitle">إضافة مشروع</h3><button class="icon-btn" value="cancel">×</button></div><div id="modalBody"></div><div class="modal-actions"><button class="outline" value="cancel" data-i18n="cancel">إلغاء</button><button class="primary" id="modalSubmit" value="default" data-i18n="save">حفظ</button></div></form></dialog>
+<dialog id="modal"><form method="dialog" id="modalForm"><div class="modal-head"><h2 id="modalTitle">إضافة</h2><button class="icon-btn" value="cancel">×</button></div><div id="modalBody"></div><div class="modal-actions"><button class="btn secondary" value="cancel">إلغاء</button><button class="btn primary" id="saveModal" value="default">حفظ</button></div></form></dialog>
 <script src="app.js"></script>
 </body></html>
-<script type="module" src="firebase.js"></script>

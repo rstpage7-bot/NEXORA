@@ -1,42 +1,21 @@
-# GradFlow — Graduation Project Management System
+# GradFlow Easy
+نسخة ويب بسيطة لإدارة مشروع التخرج، تعمل مباشرة في المتصفح دون تثبيت Node.js أو قاعدة بيانات.
 
-A bilingual (Arabic/English), responsive graduation-project management web app prototype.
+## التشغيل
+1. فك ضغط `GradFlow_Easy.zip`.
+2. افتح `index.html` في المتصفح.
+3. أضف المهام والتسليمات والملاحظات. تحفظ البيانات على نفس المتصفح باستخدام localStorage.
+4. لرفعها على GitHub Pages: ارفع الملفات الثلاثة `index.html`, `style.css`, `app.js` إلى مستودع GitHub، ثم فعّل Pages من Settings → Pages → Deploy from branch → main / root.
 
-## Included
-- RTL Arabic and LTR English interface with instant language toggle
-- Dashboard with project metrics, progress visualization, activity feed, and deadlines
-- Project list with search and status filters
-- Add project and add task dialogs
-- Task completion tracking
-- Teams and members view
-- Timeline, submissions placeholder, supervisor reviews, reports
-- CSV report export
-- Firebase email/password sign-in with verified-email requirement
-- Per-user Cloud Firestore persistence, protected by the included security rules
+## الوظائف
+- لوحة متابعة وإحصاءات مهام.
+- ملف المشروع قابل للتعديل.
+- مهام مع مسؤول وموعد وحالة قابلة للتغيير.
+- تسجيل تسليمات وروابط وحالات مراجعة.
+- قائمة استعداد للمناقشة.
+- ملاحظات تحسين قابلة للمتابعة.
+- تصدير نسخة احتياطية JSON وطباعة ملخص.
+- واجهة متجاوبة وتبديل لغة بسيط.
 
-## Run locally
-No build tools are required:
-1. Serve the files from a local web server (Firebase modules need HTTP/HTTPS; opening the file directly will not work).
-2. Create an account with an email address, verify the link Firebase sends, then sign in.
-
-For a local development server, run:
-```bash
-python -m http.server 8000
-```
-Then visit `http://localhost:8000`.
-
-## Firebase setup
-This repository is connected to the NEXORA Firebase web app. The browser configuration in `firebase.js` contains public Firebase client metadata, not an access credential. Firestore rules are the security boundary and keep each verified account's workspace data under that account's own user ID.
-
-Before using the live app:
-1. Keep **Email/Password** sign-in enabled in Firebase Authentication.
-2. Add the deployed GitHub Pages domain to Authentication's authorized domains if Firebase requests it.
-3. Publish `firestore.rules` in Firebase Console → Firestore Database → Rules.
-4. Keep the catch-all deny rule. Never put service-account credentials in this static site.
-
-The current interface does not provide team-wide role-based access. Each account sees its own workspace; sample projects are starter data.
-
-## Deploy the front end
-- Netlify: deploy the folder as a static site.
-- Vercel: import the Git repository or deploy as a static site.
-- GitHub Pages: serve the repository from its Pages deployment.
+## حدود النسخة
+هذه نسخة تجريبية تحفظ البيانات محليًا في المتصفح، ولا تحتوي على حسابات مستخدمين أو مزامنة بين الأجهزة أو صلاحيات حقيقية. لا تضع فيها بيانات حساسة. يلزم ربط backend آمن قبل الاستخدام الجماعي.
